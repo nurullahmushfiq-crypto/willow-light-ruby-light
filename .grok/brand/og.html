@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "Sora";
+      font-style: normal;
+      font-weight: 600;
+      src: url("./sora-600.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Sora";
+      font-style: normal;
+      font-weight: 700;
+      src: url("./sora-700.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Sora";
+      font-style: normal;
+      font-weight: 800;
+      src: url("./sora-800.ttf") format("truetype");
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0C0D10;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+    }
+    .stage svg {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+    .lockup {
+      position: absolute;
+      left: 50%;
+      top: 44%;
+      transform: translate(-50%, -50%);
+      width: 72%;
+      text-align: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .lockup h1 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+      font-size: 128px;
+      letter-spacing: 0.16em;
+      line-height: 0.92;
+      color: #F3F1EC;
+      text-indent: 0.16em;
+      text-shadow:
+        0 2px 0 rgba(12, 13, 16, 0.35),
+        0 8px 28px rgba(12, 13, 16, 0.55),
+        0 0 64px rgba(196, 92, 74, 0.18);
+    }
+    .lockup .rule {
+      width: 56px;
+      height: 4px;
+      margin: 22px auto 18px;
+      background: #C45C4A;
+      border-radius: 2px;
+    }
+    .lockup p {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
+      color: #C5CDD6;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(12, 13, 16, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <svg viewBox="0 0 1200 630" width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0C0D10"/>
+          <stop offset="42%" stop-color="#10131a"/>
+          <stop offset="68%" stop-color="#1A1D24"/>
+          <stop offset="100%" stop-color="#0C0D10"/>
+        </linearGradient>
+        <linearGradient id="horizon" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C45C4A" stop-opacity="0"/>
+          <stop offset="55%" stop-color="#C45C4A" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#C45C4A" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C5CDD6" stop-opacity="0.55"/>
+          <stop offset="42%" stop-color="#C5CDD6" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#C5CDD6" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="sunken" cx="50%" cy="80%" r="70%">
+          <stop offset="0%" stop-color="#C45C4A" stop-opacity="0.22"/>
+          <stop offset="55%" stop-color="#0C0D10" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0C0D10" stop-opacity="0.55"/>
+        </radialGradient>
+        <linearGradient id="roofFace" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#232833"/>
+          <stop offset="100%" stop-color="#14161c"/>
+        </linearGradient>
+        <linearGradient id="roofFaceR" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#262b36"/>
+          <stop offset="100%" stop-color="#12141a"/>
+        </linearGradient>
+        <linearGradient id="farCity" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#151820"/>
+          <stop offset="100%" stop-color="#0C0D10"/>
+        </linearGradient>
+      </defs>
+
+      <rect width="1200" height="630" fill="url(#sky)"/>
+      <rect width="1200" height="630" fill="url(#horizon)"/>
+      <ellipse cx="600" cy="430" rx="520" ry="90" fill="#C45C4A" opacity="0.16"/>
+      <circle cx="1008" cy="118" r="120" fill="url(#moonGlow)"/>
+      <circle cx="1008" cy="118" r="46" fill="#C5CDD6"/>
+      <circle cx="1022" cy="108" r="14" fill="#F3F1EC" opacity="0.18"/>
+      <circle cx="992" cy="128" r="10" fill="#0C0D10" opacity="0.08"/>
+
+      <!-- stars -->
+      <g fill="#F3F1EC">
+        <circle cx="86" cy="54" r="1.4" opacity="0.7"/>
+        <circle cx="164" cy="92" r="1.1" opacity="0.45"/>
+        <circle cx="248" cy="40" r="1.3" opacity="0.6"/>
+        <circle cx="340" cy="78" r="1" opacity="0.35"/>
+        <circle cx="430" cy="36" r="1.2" opacity="0.55"/>
+        <circle cx="620" cy="64" r="1.1" opacity="0.4"/>
+        <circle cx="710" cy="28" r="1.4" opacity="0.65"/>
+        <circle cx="802" cy="88" r="1" opacity="0.35"/>
+        <circle cx="880" cy="48" r="1.2" opacity="0.5"/>
+        <circle cx="1140" cy="72" r="1.3" opacity="0.55"/>
+        <circle cx="118" cy="140" r="0.9" opacity="0.3"/>
+        <circle cx="540" cy="22" r="1" opacity="0.4"/>
+      </g>
+
+      <!-- far skyline -->
+      <g fill="url(#farCity)">
+        <rect x="40" y="318" width="70" height="160"/>
+        <rect x="108" y="292" width="52" height="186"/>
+        <rect x="158" y="330" width="88" height="148"/>
+        <rect x="244" y="278" width="44" height="200"/>
+        <rect x="286" y="312" width="96" height="166"/>
+        <rect x="380" y="268" width="58" height="210"/>
+        <rect x="436" y="300" width="74" height="178"/>
+        <rect x="508" y="286" width="40" height="192"/>
+        <rect x="546" y="322" width="110" height="156"/>
+        <rect x="654" y="274" width="64" height="204"/>
+        <rect x="716" y="308" width="82" height="170"/>
+        <rect x="796" y="258" width="50" height="220"/>
+        <rect x="844" y="296" width="92" height="182"/>
+        <rect x="934" y="270" width="46" height="208"/>
+        <rect x="978" y="314" width="78" height="164"/>
+        <rect x="1054" y="284" width="60" height="194"/>
+        <rect x="1112" y="330" width="88" height="148"/>
+      </g>
+      <!-- far peaked roofs -->
+      <g fill="#12151c">
+        <polygon points="244,278 266,252 288,278"/>
+        <polygon points="380,268 409,236 438,268"/>
+        <polygon points="654,274 686,244 718,274"/>
+        <polygon points="796,258 821,228 846,258"/>
+        <polygon points="934,270 957,246 980,270"/>
+      </g>
+
+      <!-- mid rooftops -->
+      <g fill="#1A1D24">
+        <rect x="0" y="368" width="210" height="262"/>
+        <rect x="186" y="392" width="160" height="238"/>
+        <rect x="820" y="378" width="190" height="252"/>
+        <rect x="990" y="354" width="210" height="276"/>
+      </g>
+      <polygon fill="#1A1D24" points="0,368 70,338 210,368"/>
+      <polygon fill="#1A1D24" points="990,354 1094,318 1200,354"/>
+
+      <!-- faint far windows -->
+      <g fill="#C5CDD6" opacity="0.22">
+        <rect x="58" y="340" width="5" height="7"/>
+        <rect x="78" y="356" width="5" height="7"/>
+        <rect x="122" y="312" width="5" height="7"/>
+        <rect x="268" y="300" width="4" height="6"/>
+        <rect x="400" y="292" width="5" height="7"/>
+        <rect x="572" y="340" width="5" height="7"/>
+        <rect x="670" y="296" width="5" height="7"/>
+        <rect x="812" y="280" width="4" height="6"/>
+        <rect x="868" y="320" width="5" height="7"/>
+        <rect x="1070" y="304" width="5" height="7"/>
+      </g>
+
+      <!-- FOREGROUND LEFT ROOF -->
+      <rect x="0" y="456" width="468" height="174" fill="url(#roofFace)"/>
+      <rect x="0" y="448" width="468" height="10" fill="#2a303a"/>
+      <rect x="0" y="448" width="468" height="2" fill="#C5CDD6" opacity="0.18"/>
+      <!-- parapet blocks -->
+      <g fill="#1A1D24">
+        <rect x="18" y="438" width="22" height="12"/>
+        <rect x="86" y="438" width="22" height="12"/>
+        <rect x="154" y="438" width="22" height="12"/>
+        <rect x="222" y="438" width="22" height="12"/>
+        <rect x="290" y="438" width="22" height="12"/>
+        <rect x="358" y="438" width="22" height="12"/>
+        <rect x="426" y="438" width="22" height="12"/>
+      </g>
+      <!-- water tower -->
+      <g>
+        <rect x="58" y="392" width="5" height="56" fill="#14161c"/>
+        <rect x="96" y="392" width="5" height="56" fill="#14161c"/>
+        <rect x="52" y="368" width="56" height="36" rx="4" fill="#2a303a"/>
+        <rect x="52" y="364" width="56" height="8" rx="3" fill="#C5CDD6" opacity="0.35"/>
+        <ellipse cx="80" y="364" rx="28" ry="7" fill="#3a414c"/>
+        <rect x="76" y="348" width="8" height="16" fill="#2a303a"/>
+      </g>
+      <!-- chimney -->
+      <rect x="176" y="412" width="18" height="36" fill="#14161c"/>
+      <rect x="172" y="406" width="26" height="8" fill="#2a303a"/>
+      <!-- satellite dish -->
+      <g transform="translate(250, 412)">
+        <rect x="10" y="16" width="4" height="20" fill="#14161c"/>
+        <ellipse cx="12" cy="14" rx="16" ry="9" fill="#C5CDD6" opacity="0.35"/>
+        <ellipse cx="12" cy="14" rx="16" ry="9" fill="none" stroke="#C5CDD6" stroke-width="2" opacity="0.55"/>
+      </g>
+      <!-- left windows -->
+      <g>
+        <rect x="36" y="478" width="14" height="20" fill="#F3F1EC" opacity="0.88"/>
+        <rect x="64" y="478" width="14" height="20" fill="#C45C4A" opacity="0.45"/>
+        <rect x="92" y="478" width="14" height="20" fill="#F3F1EC" opacity="0.55"/>
+        <rect x="120" y="478" width="14" height="20" fill="#0C0D10" opacity="0.45"/>
+        <rect x="148" y="478" width="14" height="20" fill="#F3F1EC" opacity="0.8"/>
+        <rect x="36" y="514" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="64" y="514" width="14" height="20" fill="#F3F1EC" opacity="0.7"/>
+        <rect x="92" y="514" width="14" height="20" fill="#F3F1EC" opacity="0.9"/>
+        <rect x="120" y="514" width="14" height="20" fill="#C45C4A" opacity="0.38"/>
+        <rect x="148" y="514" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="300" y="478" width="14" height="20" fill="#F3F1EC" opacity="0.75"/>
+        <rect x="328" y="478" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="356" y="478" width="14" height="20" fill="#F3F1EC" opacity="0.92"/>
+        <rect x="384" y="478" width="14" height="20" fill="#C5CDD6" opacity="0.35"/>
+        <rect x="300" y="514" width="14" height="20" fill="#C45C4A" opacity="0.4"/>
+        <rect x="328" y="514" width="14" height="20" fill="#F3F1EC" opacity="0.6"/>
+        <rect x="356" y="514" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="384" y="514" width="14" height="20" fill="#F3F1EC" opacity="0.82"/>
+      </g>
+
+      <!-- FOREGROUND RIGHT ROOF -->
+      <rect x="732" y="438" width="468" height="192" fill="url(#roofFaceR)"/>
+      <rect x="732" y="430" width="468" height="10" fill="#2e3540"/>
+      <rect x="732" y="430" width="468" height="2" fill="#C5CDD6" opacity="0.2"/>
+      <g fill="#1A1D24">
+        <rect x="760" y="420" width="22" height="12"/>
+        <rect x="828" y="420" width="22" height="12"/>
+        <rect x="896" y="420" width="22" height="12"/>
+        <rect x="964" y="420" width="22" height="12"/>
+        <rect x="1032" y="420" width="22" height="12"/>
+        <rect x="1100" y="420" width="22" height="12"/>
+        <rect x="1168" y="420" width="22" height="12"/>
+      </g>
+      <!-- stair bulkhead -->
+      <rect x="1088" y="392" width="72" height="40" fill="#14161c"/>
+      <polygon points="1088,392 1124,368 1160,392" fill="#1A1D24"/>
+      <rect x="1116" y="400" width="16" height="22" fill="#F3F1EC" opacity="0.55"/>
+      <!-- antenna -->
+      <rect x="860" y="352" width="3" height="78" fill="#C5CDD6" opacity="0.45"/>
+      <rect x="852" y="360" width="19" height="3" fill="#C5CDD6" opacity="0.35"/>
+      <!-- right windows -->
+      <g>
+        <rect x="768" y="462" width="14" height="20" fill="#F3F1EC" opacity="0.9"/>
+        <rect x="796" y="462" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="824" y="462" width="14" height="20" fill="#F3F1EC" opacity="0.7"/>
+        <rect x="852" y="462" width="14" height="20" fill="#C45C4A" opacity="0.42"/>
+        <rect x="880" y="462" width="14" height="20" fill="#F3F1EC" opacity="0.5"/>
+        <rect x="768" y="498" width="14" height="20" fill="#C5CDD6" opacity="0.3"/>
+        <rect x="796" y="498" width="14" height="20" fill="#F3F1EC" opacity="0.85"/>
+        <rect x="824" y="498" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="852" y="498" width="14" height="20" fill="#F3F1EC" opacity="0.65"/>
+        <rect x="880" y="498" width="14" height="20" fill="#F3F1EC" opacity="0.78"/>
+        <rect x="960" y="462" width="14" height="20" fill="#F3F1EC" opacity="0.8"/>
+        <rect x="988" y="462" width="14" height="20" fill="#C45C4A" opacity="0.36"/>
+        <rect x="1016" y="462" width="14" height="20" fill="#0C0D10" opacity="0.4"/>
+        <rect x="1044" y="462" width="14" height="20" fill="#F3F1EC" opacity="0.92"/>
+      </g>
+
+      <!-- gap mist -->
+      <ellipse cx="600" cy="500" rx="160" ry="36" fill="#C5CDD6" opacity="0.06"/>
+
+      <!-- SCARF (behind runner) -->
+      <g fill="#C45C4A">
+        <path d="M430 392
+                 C468 368, 500 378, 534 392
+                 C508 386, 478 396, 452 414
+                 C438 426, 418 430, 402 422
+                 C414 408, 420 400, 430 392Z"/>
+        <path d="M448 404
+                 C490 392, 520 408, 546 400
+                 C522 412, 492 424, 460 430
+                 C444 434, 428 424, 448 404Z" opacity="0.9"/>
+        <path d="M410 418
+                 C438 448, 470 440, 498 428
+                 C470 450, 430 462, 396 448
+                 C384 442, 392 424, 410 418Z" opacity="0.85"/>
+      </g>
+
+      <!-- RUNNER — leaping right, cream silhouette -->
+      <g fill="#F3F1EC">
+        <!-- head -->
+        <circle cx="582" cy="368" r="13.5"/>
+        <!-- hair / cap shadow -->
+        <ellipse cx="578" cy="362" rx="10" ry="6" fill="#0C0D10" opacity="0.18"/>
+        <!-- torso -->
+        <path d="M572 380
+                 C580 378, 592 384, 604 400
+                 C608 408, 606 420, 598 430
+                 C588 438, 572 434, 564 422
+                 C556 410, 560 390, 572 380Z"/>
+        <!-- front (right) arm reaching for the ledge -->
+        <path d="M598 392
+                 C612 386, 630 382, 652 378
+                 C656 384, 650 390, 636 394
+                 C620 398, 606 404, 598 406
+                 C594 400, 594 396, 598 392Z"/>
+        <!-- back arm -->
+        <path d="M568 396
+                 C556 404, 544 418, 536 432
+                 C542 436, 548 430, 560 418
+                 C568 410, 574 404, 576 400
+                 C574 396, 572 394, 568 396Z"/>
+        <!-- front leg (leading, toward right roof) -->
+        <path d="M592 426
+                 C608 434, 626 448, 644 468
+                 C650 476, 646 484, 636 482
+                 C618 470, 600 454, 586 444
+                 C580 438, 584 428, 592 426Z"/>
+        <!-- back leg (pushing off) -->
+        <path d="M568 428
+                 C552 440, 536 458, 522 478
+                 C516 486, 508 484, 510 474
+                 C520 454, 538 438, 556 428
+                 C562 424, 570 424, 568 428Z"/>
+      </g>
+      <!-- scarf knot at neck -->
+      <ellipse cx="568" cy="384" rx="8" ry="6" fill="#C45C4A"/>
+      <path d="M560 384 C548 378, 538 386, 534 396 C544 390, 556 390, 564 388Z" fill="#C45C4A"/>
+
+      <!-- landing shadow on right roof -->
+      <ellipse cx="760" cy="434" rx="48" ry="6" fill="#0C0D10" opacity="0.35"/>
+      <!-- takeoff shadow on left roof -->
+      <ellipse cx="454" cy="452" rx="40" ry="5" fill="#0C0D10" opacity="0.3"/>
+
+      <rect width="1200" height="630" fill="url(#sunken)"/>
+    </svg>
+
+    <div class="lockup">
+      <h1>STRIDE</h1>
+      <div class="rule"></div>
+      <p>Endless dusk rooftops</p>
+    </div>
+  </div>
+</body>
+</html>

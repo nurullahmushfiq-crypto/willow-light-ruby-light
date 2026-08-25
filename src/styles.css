@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0c0d10;
+  --color-surface: #16171c;
+  --color-surface-2: #1e2128;
+  --color-fg: #f3f1ec;
+  --color-muted: #8e908c;
+  --color-subtle: #6a6c68;
+  --color-accent: #d7dde3;
+  --color-accent-fg: #0c0d10;
+  --color-border: #2a2c32;
+  --color-danger: #c45c4a;
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+}
+
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-stagger: 40ms;
+  --motion-micro: 80ms;
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+  --motion-emphasis: 500ms;
+  --motion-y-medium: 12px;
+  --motion-scale-modal: 0.96;
+}
+
+.overlay-enter > * {
+  animation: overlay-rise var(--motion-slow) var(--ease-smooth-out) both;
+}
+
+.overlay-enter > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.overlay-enter > *:nth-child(2) {
+  animation-delay: calc(var(--motion-stagger) * 2);
+}
+.overlay-enter > *:nth-child(3) {
+  animation-delay: calc(var(--motion-stagger) * 4);
+}
+.overlay-enter > *:nth-child(4) {
+  animation-delay: calc(var(--motion-stagger) * 6);
+}
+.overlay-enter > *:nth-child(5) {
+  animation-delay: calc(var(--motion-stagger) * 8);
+}
+
+.modal-enter {
+  animation: modal-in var(--motion-fast) var(--ease-smooth-out) both;
+}
+
+@keyframes overlay-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-y-medium));
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(var(--motion-scale-modal));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay-enter > *,
+  .modal-enter {
+    animation: none;
+  }
+}

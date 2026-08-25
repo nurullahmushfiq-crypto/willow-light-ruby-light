@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: "Sora";
+      font-style: normal;
+      font-weight: 600;
+      src: url("./sora-600.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Sora";
+      font-style: normal;
+      font-weight: 800;
+      src: url("./sora-800.ttf") format("truetype");
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1200px;
+      height: 264px;
+      overflow: hidden;
+      background: #0C0D10;
+    }
+    .stage {
+      position: relative;
+      width: 1200px;
+      height: 264px;
+    }
+    .stage svg {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+    .lockup {
+      position: absolute;
+      left: 48px;
+      top: 36px;
+      width: 520px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .lockup h1 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+      font-size: 72px;
+      letter-spacing: 0.14em;
+      line-height: 0.92;
+      color: #F3F1EC;
+      text-indent: 0.14em;
+      text-shadow:
+        0 2px 0 rgba(12, 13, 16, 0.4),
+        0 6px 20px rgba(12, 13, 16, 0.6);
+    }
+    .lockup .rule {
+      width: 44px;
+      height: 3px;
+      margin: 14px 0 12px 6px;
+      background: #C45C4A;
+      border-radius: 2px;
+    }
+    .lockup p {
+      margin: 0 0 0 6px;
+      font-family: "Sora", sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.36em;
+      color: #C5CDD6;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(12, 13, 16, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <svg viewBox="0 0 1200 264" width="1200" height="264" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0C0D10"/>
+          <stop offset="55%" stop-color="#141821"/>
+          <stop offset="100%" stop-color="#0C0D10"/>
+        </linearGradient>
+        <linearGradient id="horizon" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#C45C4A" stop-opacity="0"/>
+          <stop offset="70%" stop-color="#C45C4A" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#C45C4A" stop-opacity="0.08"/>
+        </linearGradient>
+        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C5CDD6" stop-opacity="0.5"/>
+          <stop offset="50%" stop-color="#C5CDD6" stop-opacity="0.1"/>
+          <stop offset="100%" stop-color="#C5CDD6" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="roofL" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#232833"/>
+          <stop offset="100%" stop-color="#14161c"/>
+        </linearGradient>
+        <linearGradient id="roofR" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#262b36"/>
+          <stop offset="100%" stop-color="#12141a"/>
+        </linearGradient>
+      </defs>
+
+      <rect width="1200" height="264" fill="url(#sky)"/>
+      <rect y="120" width="1200" height="144" fill="url(#horizon)"/>
+      <ellipse cx="860" cy="200" rx="380" ry="50" fill="#C45C4A" opacity="0.14"/>
+      <circle cx="1090" cy="58" r="78" fill="url(#moonGlow)"/>
+      <circle cx="1090" cy="58" r="28" fill="#C5CDD6"/>
+      <circle cx="1098" cy="52" r="8" fill="#F3F1EC" opacity="0.2"/>
+
+      <g fill="#F3F1EC">
+        <circle cx="70" cy="22" r="1.1" opacity="0.55"/>
+        <circle cx="160" cy="40" r="0.9" opacity="0.35"/>
+        <circle cx="300" cy="16" r="1.2" opacity="0.5"/>
+        <circle cx="520" cy="28" r="1" opacity="0.4"/>
+        <circle cx="740" cy="18" r="1.1" opacity="0.45"/>
+        <circle cx="980" cy="36" r="0.9" opacity="0.3"/>
+      </g>
+
+      <!-- far skyline, kept low so lockup stays clear on the left -->
+      <g fill="#12151c">
+        <rect x="520" y="128" width="48" height="136"/>
+        <rect x="566" y="112" width="36" height="152"/>
+        <rect x="600" y="136" width="70" height="128"/>
+        <rect x="668" y="108" width="40" height="156"/>
+        <rect x="706" y="124" width="64" height="140"/>
+        <rect x="768" y="96" width="44" height="168"/>
+        <rect x="810" y="120" width="80" height="144"/>
+        <rect x="888" y="88" width="38" height="176"/>
+        <rect x="924" y="114" width="72" height="150"/>
+        <rect x="994" y="100" width="50" height="164"/>
+        <rect x="1042" y="128" width="90" height="136"/>
+        <rect x="1130" y="110" width="70" height="154"/>
+      </g>
+      <polygon fill="#12151c" points="768,96 790,74 812,96"/>
+      <polygon fill="#12151c" points="888,88 907,66 926,88"/>
+
+      <!-- mid roofs on the right -->
+      <rect x="700" y="168" width="220" height="96" fill="#1A1D24"/>
+      <rect x="910" y="152" width="290" height="112" fill="#1A1D24"/>
+      <polygon fill="#1A1D24" points="910,152 980,132 1200,152"/>
+
+      <!-- left foreground roof — stays under the lockup, scenery only -->
+      <rect x="0" y="196" width="420" height="68" fill="url(#roofL)"/>
+      <rect x="0" y="190" width="420" height="7" fill="#2a303a"/>
+      <rect x="0" y="190" width="420" height="2" fill="#C5CDD6" opacity="0.18"/>
+      <g fill="#1A1D24">
+        <rect x="16" y="182" width="16" height="9"/>
+        <rect x="64" y="182" width="16" height="9"/>
+        <rect x="112" y="182" width="16" height="9"/>
+        <rect x="160" y="182" width="16" height="9"/>
+        <rect x="208" y="182" width="16" height="9"/>
+        <rect x="256" y="182" width="16" height="9"/>
+        <rect x="304" y="182" width="16" height="9"/>
+        <rect x="352" y="182" width="16" height="9"/>
+      </g>
+      <!-- water tower, far left, below lockup -->
+      <rect x="48" y="158" width="4" height="32" fill="#14161c"/>
+      <rect x="72" y="158" width="4" height="32" fill="#14161c"/>
+      <rect x="44" y="142" width="36" height="22" rx="3" fill="#2a303a"/>
+      <ellipse cx="62" y="142" rx="18" ry="5" fill="#3a414c"/>
+
+      <!-- right foreground roof -->
+      <rect x="760" y="176" width="440" height="88" fill="url(#roofR)"/>
+      <rect x="760" y="170" width="440" height="7" fill="#2e3540"/>
+      <rect x="760" y="170" width="440" height="2" fill="#C5CDD6" opacity="0.2"/>
+      <rect x="1048" y="146" width="56" height="26" fill="#14161c"/>
+      <polygon points="1048,146 1076,128 1104,146" fill="#1A1D24"/>
+      <rect x="1068" y="152" width="12" height="14" fill="#F3F1EC" opacity="0.55"/>
+      <rect x="860" y="118" width="2" height="52" fill="#C5CDD6" opacity="0.4"/>
+
+      <!-- windows -->
+      <g>
+        <rect x="24" y="210" width="9" height="12" fill="#F3F1EC" opacity="0.85"/>
+        <rect x="42" y="210" width="9" height="12" fill="#C45C4A" opacity="0.4"/>
+        <rect x="60" y="210" width="9" height="12" fill="#0C0D10" opacity="0.4"/>
+        <rect x="78" y="210" width="9" height="12" fill="#F3F1EC" opacity="0.7"/>
+        <rect x="200" y="210" width="9" height="12" fill="#F3F1EC" opacity="0.9"/>
+        <rect x="218" y="210" width="9" height="12" fill="#0C0D10" opacity="0.4"/>
+        <rect x="236" y="210" width="9" height="12" fill="#F3F1EC" opacity="0.55"/>
+        <rect x="800" y="192" width="10" height="14" fill="#F3F1EC" opacity="0.88"/>
+        <rect x="820" y="192" width="10" height="14" fill="#0C0D10" opacity="0.4"/>
+        <rect x="840" y="192" width="10" height="14" fill="#C45C4A" opacity="0.4"/>
+        <rect x="860" y="192" width="10" height="14" fill="#F3F1EC" opacity="0.75"/>
+        <rect x="920" y="192" width="10" height="14" fill="#F3F1EC" opacity="0.9"/>
+        <rect x="940" y="192" width="10" height="14" fill="#C5CDD6" opacity="0.3"/>
+        <rect x="960" y="192" width="10" height="14" fill="#F3F1EC" opacity="0.6"/>
+      </g>
+
+      <!-- scarf -->
+      <g fill="#C45C4A">
+        <path d="M620 118
+                 C652 102, 678 108, 704 118
+                 C682 114, 658 122, 638 134
+                 C626 142, 610 144, 598 138
+                 C608 128, 612 122, 620 118Z"/>
+        <path d="M632 128
+                 C664 120, 688 132, 708 126
+                 C690 136, 666 146, 640 148
+                 C626 150, 616 140, 632 128Z" opacity="0.9"/>
+      </g>
+
+      <!-- runner leaping toward the right roof -->
+      <g fill="#F3F1EC">
+        <circle cx="742" cy="104" r="11"/>
+        <ellipse cx="739" cy="99" rx="8" ry="5" fill="#0C0D10" opacity="0.18"/>
+        <path d="M734 114
+                 C742 112, 752 118, 762 130
+                 C766 138, 764 148, 756 156
+                 C748 162, 734 160, 728 150
+                 C722 140, 724 124, 734 114Z"/>
+        <path d="M756 124
+                 C770 118, 788 114, 808 110
+                 C812 116, 806 122, 792 126
+                 C778 130, 764 134, 756 136
+                 C752 130, 752 126, 756 124Z"/>
+        <path d="M730 128
+                 C720 136, 710 148, 702 160
+                 C708 164, 714 158, 724 148
+                 C730 140, 736 134, 738 132
+                 C736 128, 734 126, 730 128Z"/>
+        <path d="M750 152
+                 C764 160, 780 172, 796 188
+                 C802 194, 798 200, 790 198
+                 C774 188, 758 174, 746 166
+                 C740 160, 744 152, 750 152Z"/>
+        <path d="M730 154
+                 C716 164, 702 178, 690 194
+                 C684 200, 678 198, 680 190
+                 C688 174, 704 162, 720 154
+                 C726 150, 732 150, 730 154Z"/>
+      </g>
+      <ellipse cx="728" cy="118" rx="7" ry="5" fill="#C45C4A"/>
+
+      <ellipse cx="790" cy="174" rx="36" ry="5" fill="#0C0D10" opacity="0.32"/>
+      <ellipse cx="430" cy="194" rx="28" ry="4" fill="#0C0D10" opacity="0.25"/>
+    </svg>
+
+    <div class="lockup">
+      <h1>STRIDE</h1>
+      <div class="rule"></div>
+      <p>Endless dusk rooftops</p>
+    </div>
+  </div>
+</body>
+</html>
